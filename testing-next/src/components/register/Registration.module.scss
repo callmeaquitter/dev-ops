@@ -1,0 +1,158 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.container {
+  background-color: $background-white;
+  min-height: 100vh; // Устанавливаем минимальную высоту в 100% высоты экрана
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.loginBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2rem;
+  padding: 2rem;
+  box-shadow: $shadow;
+  background-color: $white;
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+  overflow-y: auto; // Добавляем прокрутку для содержимого
+
+  @media (max-width: 600px) {
+    padding: 1.5rem;
+  }
+
+  @media (min-width: 1120px) {
+    max-width: 800px;
+    padding: 2.5rem;
+  }
+
+  h1 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: $primary-color;
+
+    @media (max-width: 600px) {
+      font-size: 1.75rem;
+    }
+
+    @media (min-width: 1920px) {
+      font-size: 2.5rem;
+    }
+  }
+
+  .backButton {
+    @include back-button;
+    align-self: flex-start;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    color: $primary-color;
+    transition: color 0.3s;
+
+    &:hover {
+      color: darken($primary-color, 10%);
+    }
+  }
+
+  .formInputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .loginInput, .passwordInput {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+
+      span {
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+        color: $text-color;
+
+        @media (max-width: 600px) {
+          font-size: 0.875rem;
+        }
+
+        @media (min-width: 1920px) {
+          font-size: 1.25rem;
+        }
+      }
+
+      input {
+        padding: 0.75rem;
+        border: 1px solid $border-color;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+
+        &:focus {
+          border-color: $primary-color;
+          outline: none;
+        }
+
+        @media (max-width: 600px) {
+          font-size: 0.875rem;
+          padding: 0.5rem;
+        }
+
+        @media (min-width: 1920px) {
+          font-size: 1.25rem;
+          padding: 1rem;
+        }
+      }
+    }
+  }
+
+  button {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    background-color: $primary-color;
+    color: $white;
+    font-size: 1.25rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    justify-content: center;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+
+    @media (max-width: 600px) {
+      font-size: 1rem;
+      padding: 0.75rem;
+    }
+
+    @media (min-width: 1920px) {
+      font-size: 1.5rem;
+      padding: 1.25rem;
+    }
+  }
+
+  .support {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1rem;
+
+    .login {
+      text-decoration: none;
+      color: $primary-color;
+      transition: color 0.3s;
+
+      &:hover {
+        color: darken($primary-color, 10%);
+      }
+    }
+  }
+}
