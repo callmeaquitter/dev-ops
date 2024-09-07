@@ -8,7 +8,6 @@ import (
 	"time"
 
 	"wishlist/db"
-	_ "wishlist/docs"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/rs/xid"

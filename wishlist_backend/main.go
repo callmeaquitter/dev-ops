@@ -5,8 +5,6 @@ import (
 	"log"
 	"os"
 
-	_ "wishlist/docs"
-
 	"wishlist/db"
 	"wishlist/server"
 
