@@ -1,4 +1,4 @@
-SERVER = 62.84.122.74
+SERVER = localhost
 PORT = 80
 
 DATABASE_USERNAME = root
