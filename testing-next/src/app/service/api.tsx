@@ -7,7 +7,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 // Define a service using a base URL and expected endpoints
 export const wishlistApi = createApi({
   reducerPath: "wishlistApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "localhost" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "localhost:7000" }),
   endpoints: (builder) => ({
     getTasks: builder.query({
       query: () => "/tasks",
