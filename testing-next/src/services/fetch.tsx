@@ -9,7 +9,7 @@ import {Credentionals} from "@/types/credentionals";
 import { log } from 'console';
 
 
-const BASE = 'http://localhost:7000'
+const BASE = 'http://89.169.173.45:7000'
 const SESSION = 'session_cp4ahofnnsjf4mhn7ufg'
 
 export async function fetchWishes(): Promise<Gift[]> {
