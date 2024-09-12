@@ -1,0 +1,160 @@
+version: '3'
+services:
+  backend:
+    build:
+      context: ./wishlist_backend
+      dockerfile: Dockerfile
+    image: backend
+    container_name: backend
+    env_file: ./wishlist_backend/ .env
+    networks:
+      - platform_network
+    links:
+      - postgresql:db
+    depends_on:
+      - postgresql
+    ports:
+      - '7000:7000'
+
+  frontend:
+    build: 
+      context: "./testing-next"
+      dockerfile: Dockerfile
+    image: frontend
+    container_name: frontend
+    depends_on:
+        - backend
+    ports:
+    - "3000:3000"
+    networks:
+    - platform_network
+
+  postgresql:
+    image: postgres
+    container_name: wishlist_db
+    networks:
+      - platform_network
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER: root
+      - POSTGRES_PASSWORD: root
+      - POSTGRES_DB: wishlist
+      - PGDATA: /var/lib/postgresql/data/pgdata
+    command: postgres
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+volumes:
+  postgres_data:
+networks:
+  platform_network:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# services:
+#   app:
+#     build:
+#       context: ./
+#       dockerfile: Dockerfile
+#     image: innerplatform
+#     container_name: innerplatform-backend-MAS
+#     env_file: .env
+#     networks:
+#       - platform_network
+#     links:
+#       - postgresql:db
+#     depends_on:
+#       - postgresql
+#     environment:
+#       - POSTGRES_USERNAME=root
+#       - POSTGRES_PASSWORD=root
+#       - POSTGRES_DB=wishlist
+#     ports:
+#       - '5432:5432'
+
+#   frontend:
+#     build: './testing-next'
+#     ports:
+#     - "3000:3000"
+
+#   backend:
+#     build: './wishlist_backend'
+#     ports: 
+#     - "7000:7000"
+
+#   postgresql:
+#     image: postgres
+#     container_name: postgres_container
+#     networks:
+#       - platform_network
+#     ports:
+#       - '5432:5432'
+#     environment:
+#       - POSTGRES_USER=root
+#       - POSTGRES_PASSWORD=root
+#       - POSTGRES_DATABASE=wishlist
+#     command: postgres
+#     restart: always
+#     volumes:
+#       - postgres_data:/var/lib/postgresql/data
+# volumes:
+#   postgres_data:
+# networks:
+#   platform_network:
+
+# services:
+#   frontend:
+#     build: './testing-next'
+#     ports:
+#     - "3000:3000"
+
+#   backend:
+#     build: './wishlist_backend'
+#     ports: 
+#     - "7000:7000"
+  
+#   db:
+#     image: postgres:latest
+#     container_name: postgres
+#     ports: 
+#       - "5432:5432"
+#     environment:
+#       - POSTGRES_USERNAME = root
+#       - POSTGRES_PASSWORD = root
+#       - POSTGRES_DB = wishlist
+#       - POSTGRES_SYNCHRONIZE = true
+#       - DATABASE_USER = root
+#       - DATABASE_PASSWORD = root
