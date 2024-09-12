@@ -5,7 +5,7 @@ go 1.21
 require (
 	github.com/arsmn/fiber-swagger/v2 v2.31.1
 	github.com/go-playground/validator/v10 v10.19.0
-	github.com/gofiber/fiber/v2 v2.52.2
+	github.com/gofiber/fiber/v2 v2.52.5
 	github.com/joho/godotenv v1.5.1
 	github.com/rs/xid v1.5.0
 	github.com/shopspring/decimal v1.3.1
